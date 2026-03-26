@@ -19,11 +19,16 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: nodejs install
-        run: |
-          curl -s https://deb.nodesource.com/setup_16.x | sudo bash
-          sudo apt install nodejs -y
-
+      # - name: nodejs install
+      #   run: |
+      #     curl -s https://deb.nodesource.com/setup_16.x | sudo bash
+      #     sudo apt install nodejs -y
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.3.0
+        with:
+          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+          node-version: 16.x
+          
       - name: dependancies
         run: npm install
 
