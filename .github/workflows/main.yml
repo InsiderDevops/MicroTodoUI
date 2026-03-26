@@ -30,5 +30,10 @@ jobs:
       - name: build artifacts
         run: npm run build
 
-      - name: upload artifacts
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.2.2
+        with:
+          name: frontend
+          path: build/
+           
         
