@@ -1,0 +1,22 @@
+name: TODOUI Pipeline
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  example_matrix:
+      strategy:
+        matrix:
+          version: [16.x, 18.x, 20.x]
+          os: [ubuntu-latest, windows-latest, macos-latest]
+      runs-on: ${{matrix.os}}        
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v6.0.2
+          with:
+            fetch-depth: 0
+        - name: Setup Node.js environment
+          uses: actions/setup-node@v6.3.0
+          with:
+            node-version: ${{matrix.version}}
+        
